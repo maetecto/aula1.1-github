@@ -1,0 +1,40 @@
+package application;
+
+import java.util.Scanner;
+import Entities.Estudante;
+
+public class Program {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+
+		Estudante[] vector = new Estudante[10];
+
+		System.out.println("How many rooms will be rented? ");
+		int rented = sc.nextInt();
+		
+		for(int i = 1; i <= rented; i++) {
+			sc.nextLine();
+			System.out.println("Rent #" + i + ":");
+			System.out.print("Name: ");
+			String name = sc.nextLine();
+			System.out.print("Email: ");
+			String email = sc.nextLine();
+			System.out.print("Room: ");
+			int room = sc.nextInt();
+			vector[room]= new Estudante(name, email);
+			System.out.println();
+		}
+
+		System.out.println("Busy rooms:");
+		for(int i = 0; i < vector.length; i++) {
+			if(vector[i] != null) {
+				System.out.println(i + ": " + vector[i]);
+			}
+		}
+		
+		sc.close();
+	}
+
+}
